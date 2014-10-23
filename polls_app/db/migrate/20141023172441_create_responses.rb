@@ -6,8 +6,8 @@ class CreateResponses < ActiveRecord::Migration
       
       t.timestamps
     end
-    add_index :response, :answer_choice_id
-    add_index :response, :user_id
-    add_index :response, [:user_id, :answer_choice_id], unique: true
+    add_index :responses, :answer_choice_id
+    add_index :responses, :user_id
+    add_index :responses, [:user_id, :answer_choice_id], unique: true
   end
 end
