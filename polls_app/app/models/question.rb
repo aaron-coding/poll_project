@@ -23,12 +23,9 @@ class Question < ActiveRecord::Base
   )
   
   def results
-    output = Hash.new(0)
-    choices = answer_choices.includes(:responses)
-    choices.each do |choice|
-      output[choice.text] = choice.responses.length
-    end
-    output
+    answer_choices.select('answer_choices.*')
+    .joins('LEFT OUTER JOIN responses ON responses.answer_choice_id = answer_choices.id')
+    .group('answer_choices.text').count('responses.id')
   end
 end
 
