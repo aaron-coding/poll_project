@@ -29,15 +29,3 @@ class Question < ActiveRecord::Base
   end
 end
 
-# SELECT
-#   answer_choices.*, COUNT(responses.id)
-# FROM
-#   answer_choices
-# LEFT OUTER JOIN
-#   responses
-# ON
-#   responses.answer_choice_id = answer_choices.id
-# WHERE
-#   answer_choices.question_id = self.id
-# GROUP BY
-#   answer_choices.id
